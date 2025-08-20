@@ -7,10 +7,10 @@ import scikit_posthocs as sp
 # === LOAD AND CLEAN DATA ===
 df = pd.read_csv('cell_counts_summary.csv')
 
-# Ensure consistent lowercase & no whitespace
+# Ensure consistent formatting & no whitespace
 df['condition'] = df['condition'].str.lower().str.strip()
 
-# Extract ratio from run name
+# ratio from run name
 df['ratio'] = df['run'].str.extract(r'ratio_(\d+)_')[0].astype(int)
 
 # Calculate derived metrics
@@ -32,7 +32,6 @@ order = ['99/1', '97/3', '95/5', '93/7', '90/10']
 
 df['blast_to_reg'] = df['blastemal'] / df['regressive']
 df['reg_to_blast'] = df['regressive'] / df['blastemal']
-
 
 # === STATS ANALYSIS ===
 
@@ -79,6 +78,7 @@ print(df['ratio'].unique())
 print(df['ratio_label'].unique())
 
 print(df[['run', 'ratio', 'ratio_label']].drop_duplicates())
+
 # Label mapping and order
 label_map = {
     1: '99/1',
@@ -89,7 +89,6 @@ label_map = {
 }
 df['ratio'] = df['ratio'].astype(int)
 df['ratio_label'] = df['ratio'].map(label_map)
-
 
 def dunn_test_with_heatmap(subset, condition_name, value_col='blastemal'):
     from matplotlib.colors import Normalize
@@ -149,7 +148,6 @@ dunn_test_with_heatmap(df[df['condition'] == 'no_dox'], 'no_dox', value_col='bla
 violin_plot_ratio('blast_to_reg', 'Blastemal : Regressive Ratio')
 violin_plot_ratio('reg_to_blast', 'Regressive : Blastemal Ratio')
 
-
 def plot_metric(metric, ylabel):
     for cond in ['dox', 'no_dox']:
         subset = df[df['condition'] == cond]
@@ -175,3 +173,4 @@ def plot_metric(metric, ylabel):
 plot_metric('blastemal', 'Blastemal Cell Count')
 plot_metric('blastemal_to_regressive', 'Blastemal : Regressive Ratio')
 plot_metric('percent_dead', '% Dead Cells')
+
