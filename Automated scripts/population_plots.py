@@ -4,10 +4,10 @@ import scipy.io
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Base directory structure
+# Base directory
 base_dir = 'output'
 conditions = ['dox', 'no_dox']
-time_step = 60  # in minutes (adjust based on your simulation)
+time_step = 60  # in minutes
 
 for cond in conditions:
     condition_path = os.path.join(base_dir, cond)
@@ -66,7 +66,7 @@ for cond in conditions:
             except Exception as e:
                 print(f"Failed reading {mat_path}: {e}")
 
-        # Plot 1: Regressive vs Blastemal
+        # Plot 1 - Regressive vs Blastemal
         if times:
             plt.figure(figsize=(8, 5))
             plt.plot(times, regressive_cells, label='Regressive', color='blue')
@@ -78,7 +78,7 @@ for cond in conditions:
             plt.tight_layout()
             #plt.show()
 
-            # Plot 2: Total vs Dead
+            # Plot 2 - Total vs Dead
             plt.figure(figsize=(8, 5))
             plt.plot(times, total_cells, label='Total', color='green')
             plt.plot(times, dead_cells, label='Dead', color='red', linestyle='--')
@@ -89,4 +89,5 @@ for cond in conditions:
             plt.tight_layout()
             plt.savefig(f"{cond}_{run_name}_regressive_vs_blastemal.png", dpi=300)
             plt.close()
+
 
