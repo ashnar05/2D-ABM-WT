@@ -1,0 +1,10 @@
+regressive,pressure,decreases,cycle entry,0,1,4,0
+blastemal,pressure,decreases,cycle entry,0,1,4,0
+regressive,oxygen,increases,cycle entry,0.0007,21.5,4,0
+blastemal,oxygen,increases,cycle entry,0.0007,21.5,4,0
+regressive,oxygen,decreases,necrosis,0.0,3.75,8,0
+blastemal,oxygen,decreases,necrosis,0.0,3.75,8,0
+blastemal,oxygen,decreases,migration speed,0,7.5,6,0
+regressive,oxygen,decreases,migration speed,0,7.5,6,0
+regressive,oxygen,increases,cell-cell adhesion,0.4,7.5,6,0
+blastemal,oxygen,increases,cell-cell adhesion,0.4,7.5,6,0
