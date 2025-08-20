@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Load your summary CSV
+# Load summary CSV
 df = pd.read_csv("cell_counts_summary.csv")
 
 # Extract numeric ratio from run name
@@ -45,3 +45,4 @@ for cond in ['dox', 'no_dox']:
         plt.ylabel('Cell Count')
         plt.tight_layout()
         plt.show()
+
